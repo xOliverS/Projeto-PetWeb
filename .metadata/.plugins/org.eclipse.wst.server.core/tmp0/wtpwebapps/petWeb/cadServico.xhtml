@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="cadService.css" media="screen" />
+	<title>Pet Web</title>
+</h:head>
+
+<h:body style="background: url('./images/back.jpg') repeat">
+	<h:form id="form">
+	<h1>Cadastro de Serviço Pet Web Shop</h1>
+		<p:panel header="Página de cadastro">
+			<p:panelGrid columns="2">
+			
+				<p:outputLabel value="Tipo de serviço"/>
+				<h:inputText value="#{servicoBean.serv.tipoServico}" placeholder="Descrição do Serviço"/>	
+				
+				<p:outputLabel value="Tipo de animal"/>
+				 <p:selectOneButton value="#{servicoBean.serv.tipoAnimal}">
+		            <f:selectItem itemLabel="Cachorro" itemValue="Cachorro"/>
+		            <f:selectItem itemLabel="Gato" itemValue="Gato"/>
+		            <f:selectItem itemLabel="Coelho" itemValue="Coelho"/>
+		        </p:selectOneButton>
+		        
+		        <p:outputLabel value="Valor do Serviço"/>
+		        <p:inputNumber id="input1" value="#{servicoBean.serv.valorServico}" modifyValueOnWheel="false" />
+		        <p:outputLabel value="Observações"/>
+		        <p:inputTextarea rows="6" cols="33" value="#{servicoBean.serv.anotacoes}"/>
+		        <p:commandButton value="Salvar" action="#{servicoBean.salvar}" update="form"/>
+		        
+		        <p:link outcome="index" value="Ir para Home"/>
+			</p:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+
+</html>
