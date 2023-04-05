@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Mon Apr 03 19:30:09 BRT 2023
-org.eclipse.jst.jee.server\:/binary\:D\:\\windows\\Programa\u00E7\u00E3o\\DesenvolvimentoPessoal\\projetoHibernate\\petWeb\\src\\main\\webapp\\WEB-INF\\lib\\primefaces-10.0.0.jar=WEB-INF/lib/primefaces-10.0.0.jar
