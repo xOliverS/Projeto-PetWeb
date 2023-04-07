@@ -3,10 +3,9 @@ package dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
 import entidades.Servico;
 import util.JPAUTIL;
-
-
 
 public class ServicoDAO {
 
@@ -32,6 +31,8 @@ public class ServicoDAO {
 		em.close();
 		return serv;
 	}
+	
+	
 	
 
 }

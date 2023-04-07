@@ -2,6 +2,8 @@ package bean;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
 import dao.ServicoDAO;
 import entidades.Servico;
 
@@ -10,6 +12,7 @@ public class ServicoBean {
 
 	private Servico serv = new Servico();
 	private List<Servico> list;
+	
 	
 	public String salvar() {
 		
@@ -46,4 +49,6 @@ public class ServicoBean {
 	public void setList(List<Servico> list) {
 		this.list = list;
 	}
+	
+
 }
