@@ -1,15 +1,16 @@
 @charset "ISO-8859-1";
 
-body{
+
+
+*{
 	margin: 0px;
 	padding: 0p;
 	box-sizing: border-box;
+	background-image: url('./images/back.jpg');
 }
 
-#home .ui-icon{
-	display: none;
-}
-
-.ui-menubar{
-	background-color: #4682B4;
+.card{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
