@@ -15,7 +15,8 @@ public class LoginBean {
 	
 	public String doLogin() {
 		if (LoginDAO.verificarCredencial(username, password) != null) {
-			return "./index";
+			String resultado = password;
+			return resultado;
 		}else {
 			return null;
 		}

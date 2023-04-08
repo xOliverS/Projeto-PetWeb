@@ -13,6 +13,7 @@ public class ServicoBean {
 	private Servico serv = new Servico();
 	private List<Servico> list;
 	
+
 	
 	public String salvar() {
 		

@@ -1,5 +1,5 @@
 @charset "ISO-8859-1";
-
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500&display=swap');
 
 
 *{
@@ -10,11 +10,11 @@
 }
 
 body{
-	background-image: url("https://media.istockphoto.com/id/1201853415/pt/vetorial/pet-shop-related-seamless-pattern-and-background-with-line-icons.jpg?s=1024x1024&w=is&k=20&c=rJ0btn11wWQKqs27t6GNxGbvpENZrlJHhOXL0qtHCPU=");
+	font-family: 'Alkatra', cursive;
 }
 
 .card{
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
+

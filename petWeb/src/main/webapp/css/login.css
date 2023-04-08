@@ -9,7 +9,7 @@
 }
 
 body{
-	background-image: url("https://lh3.googleusercontent.com/p/AF1QipMeT7hsGlXZdVgsO9nqrtGoQ9aY13AMeQDmx3Vx=w1080-h608-p-no-v0") repeat;
+	background: url("https://as1.ftcdn.net/v2/jpg/01/86/42/44/1000_F_186424417_a6r0AO8VfE9WIF7EC4MRvn6cpJKjTjRu.jpg") repeat;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -19,18 +19,19 @@ body{
 }
 
 h1{
+	color: #464646;
+	box-shadow: 2px;
 	margin-top: 30px;
 }
 
 .login{
 	margin: 100px;
-	z-index: 9999;
 	display: flex;
 	flex-direction: column;
 }
 
 #float-input{
-	width: 500px;
+	width: 900px;
 	
 	background-color: transparent;
 }
