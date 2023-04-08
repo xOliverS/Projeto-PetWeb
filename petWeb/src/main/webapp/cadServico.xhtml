@@ -14,7 +14,7 @@
 </h:head>
 
 <h:body style="background: url('./images/banner.jpg')">
-	<h:form id="form">
+	
 	<nav class="nav">
 			 <div class="card">
 			    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
@@ -34,7 +34,9 @@
 			    </p:tabMenu>
 			</div>			
 		</nav>
-		<p:panel header="Página de cadastro">
+		
+		<h:form id="form">
+		<p:panel header="Página de cadastro" style="margin-top: 50px; max-width: vw; display: flex; justify-content:center;">
 			<p:panelGrid columns="2">
 			
 				<p:outputLabel value="Tipo de serviço"/>
