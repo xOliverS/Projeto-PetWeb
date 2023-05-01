@@ -1,31 +1,23 @@
 package dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 
 import entidades.Usuario;
 import util.JPAUTIL;
 
+
 public class LoginDAO {
 	
-	public static Usuario verificarCredencial(String username, String password) {
-		EntityManager em = JPAUTIL.criarEntity();
-		
+	public static Usuario buscarLoginSenha(String login, String senha) {
 		try {
-			TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.login = :login", Usuario.class);
-			query.setParameter("login", username);
-			Usuario usuario = query.getSingleResult();
-			
-			if(usuario != null && usuario.getSenha().equals(password)) {
-				return usuario;
-			} else {
-				return null;
-			}
-			
+			EntityManager em = JPAUTIL.criarEntity();
+			Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.login = :login AND u.senha = :senha");
+			q.setParameter("login", login);
+			q.setParameter("senha", senha);
+			return (Usuario) q.getSingleResult();
 		} catch (Exception e) {
 			return null;
-		} finally {
-			em.close();
 		}
 	}
 

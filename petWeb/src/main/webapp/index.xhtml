@@ -13,6 +13,18 @@
 	<title>Pet Web</title>
 	</h:head>
 	<h:body>
+	<ui:fragment rendered="#{not empty sessionBean.usuarioLogado}">
+		<h1>Bem-vindo, #{sessionBean.usuarioLogado.nome}!</h1>
+		<h:form>
+			<h:commandButton value="Sair" action="#{loginBean.sair}" />
+		</h:form>
+	</ui:fragment>
+	<ui:fragment rendered="#{empty sessionBean.usuarioLogado}">
+		<h1>Você não está logado!</h1>
+		<h:form>
+			<h:commandButton value="Login" action="login.xhtml" />
+		</h:form>
+	</ui:fragment>
 	 	<nav class="nav">
 			 <div class="card">
 			    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
@@ -26,7 +38,7 @@
 			                    disabled="false">
 			            <f:param name="i" value="2"/>
 			        </p:menuitem>
-			        <p:menuitem value="Contato" outcome="/login" icon="pi pi-fw pi-phone">
+			        <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-users">
 			            <f:param name="i" value="4"/>
 			        </p:menuitem>
 			    </p:tabMenu>

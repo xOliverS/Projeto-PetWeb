@@ -20,7 +20,15 @@ public class Usuario implements Serializable{
 	private String login;
 	@Column(name = "senha", nullable = false)
 	private String senha;
+	@Column(name = "Administrador", nullable = false)
+	private boolean nivel;
 	
+	public boolean isNivel() {
+		return nivel;
+	}
+	public void setNivel(boolean nivel) {
+		this.nivel = nivel;
+	}
 	public Integer getId() {
 		return id;
 	}

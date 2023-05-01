@@ -6,7 +6,6 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
 
 <h:head>
 	<link rel="stylesheet" type="text/css" href="cadService.css" media="screen" />
@@ -35,30 +34,23 @@
 			</div>			
 		</nav>
 		
-		<h:form id="form">
+		<h:form id="form2">
 		<p:panel header="Página de cadastro" style="margin-top: 50px; max-width: vw; display: flex; justify-content:center;">
 			<p:panelGrid columns="2">
 			
-				<p:outputLabel value="Tipo de serviço"/>
-				<p:inputText value="#{servicoBean.serv.tipoServico}" placeholder="Ex: Banho, Tosa"/>	
+				<p:outputLabel value="Login"/>
+				<p:inputText value="#{usuarioBean.user.login}" placeholder="Ex: Banho, Tosa"/>	
 				
-				<p:outputLabel value="Tipo de animal"/>
-				 <p:selectOneButton value="#{servicoBean.serv.tipoAnimal}">
-		            <f:selectItem itemLabel="Cachorro" itemValue="Cachorro"/>
-		            <f:selectItem itemLabel="Gato" itemValue="Gato"/>
-		            <f:selectItem itemLabel="Coelho" itemValue="Coelho"/>
-		        </p:selectOneButton>
+				<p:outputLabel value="Senha"/>
+				 <p:inputText value="#{usuarioBean.user.senha}" />
 		        
-		        <p:outputLabel value="Valor do Serviço"/>
-		        <p:inputNumber id="input1" value="#{servicoBean.serv.valorServico}" modifyValueOnWheel="false" />
-		        <p:outputLabel value="Observações"/>
-		        <p:inputTextarea rows="6" cols="33" value="#{servicoBean.serv.anotacoes}"/>
-		        <p:commandButton value="Salvar" action="#{servicoBean.salvar}" update="form"/>
+		        <p:outputLabel value="Nivel"/>
+				 <p:inputText value="#{usuarioBean.user.nivel}" />
+		        <p:commandButton value="Salvar" action="#{usuarioBean.salvar}" update="form2"/>
 		        
 		        
 			</p:panelGrid>
 		</p:panel>
 	</h:form>
 </h:body>
-
 </html>

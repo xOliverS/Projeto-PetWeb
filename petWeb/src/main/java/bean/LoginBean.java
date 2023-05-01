@@ -1,38 +1,62 @@
 package bean;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import dao.LoginDAO;
+import entidades.Usuario;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class LoginBean {
 	
-	private String username;
-	private String password;
+	private String login;
+	private String senha;
+	private Usuario usr;
 	
+	@ManagedProperty(value = "#{autenticadorBean}")
+	private AutenticadorBean autenticadorBean;
 	
-	public String doLogin() {
-		if (LoginDAO.verificarCredencial(username, password) != null) {
-			String resultado = password;
-			return resultado;
+	public String autenticar() {
+		usr = LoginDAO.buscarLoginSenha(login, senha);
+		
+		if(usr != null) {			
+			autenticadorBean.setUsrLogado(usr);
+			System.out.println("LOGANDO..");
+			return "index.xhtml?faces-redirect=true";
+			
 		}else {
+			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não cadastrado!", null);
+			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;
 		}
 	}
 	
-	public String getUsername() {
-		return username;
+	public String sair() {
+		usr = null;
+		autenticadorBean.setUsrLogado(null);
+		System.out.println("SAINDO..");
+		return "login.xhtml?faces-redirect=true";
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	
+	public void setAutenticadorBean(AutenticadorBean autenticadorBean) {
+		this.autenticadorBean = autenticadorBean;
 	}
-	public String getPassword() {
-		return password;
+	
+	public String getLogin() {
+		return login;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }
