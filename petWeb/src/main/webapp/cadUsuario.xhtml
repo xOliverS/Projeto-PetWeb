@@ -8,49 +8,32 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<link rel="stylesheet" type="text/css" href="cadService.css" media="screen" />
-	<title>Pet Web</title>
+	<link rel="stylesheet" type="text/css" href="cadUsuario.css" media="screen" />
+	<title>Cadastro Usuario</title>
 </h:head>
 
-<h:body style="background: url('./images/banner.jpg')">
-	
-	<nav class="nav">
-			 <div class="card">
-			    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
-			        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
-			            <f:param name="i" value="0"/>
-			        </p:menuitem>
-			        <p:menuitem value="Consultar" outcome="/index" icon="pi pi-fw pi-calendar">
-			            <f:param name="i" value="1"/>
-			        </p:menuitem>
-			        <p:menuitem value="Cadastrar" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
-			                    disabled="false">
-			            <f:param name="i" value="2"/>
-			        </p:menuitem>
-			        <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-users">
-			            <f:param name="i" value="4"/>
-			        </p:menuitem>
-			    </p:tabMenu>
-			</div>			
-		</nav>
-		
-		<h:form id="form2">
-		<p:panel header="Página de cadastro" style="margin-top: 50px; max-width: vw; display: flex; justify-content:center;">
-			<p:panelGrid columns="2">
-			
-				<p:outputLabel value="Login"/>
-				<p:inputText value="#{usuarioBean.user.login}" placeholder="Ex: Banho, Tosa"/>	
+<h:body>		
+		<h:form id="form">
+			<div class="login">	
+				
+				<p:outputLabel value="Nome de Usuário"/>
+				<p:inputText value="#{usuarioBean.user.nomeUsuario}"/>
+				
+				<p:outputLabel value="login"/>
+				<p:inputText value="#{usuarioBean.user.login}"/>
 				
 				<p:outputLabel value="Senha"/>
-				 <p:inputText value="#{usuarioBean.user.senha}" />
-		        
-		        <p:outputLabel value="Nivel"/>
-				 <p:inputText value="#{usuarioBean.user.nivel}" />
-		        <p:commandButton value="Salvar" action="#{usuarioBean.salvar}" update="form2"/>
-		        
-		        
-			</p:panelGrid>
-		</p:panel>
-	</h:form>
+				<p:inputText value="#{usuarioBean.user.senha}"/>
+				
+				<p:outputLabel value="Administrador"/>
+				<p:selectOneButton value="#{usuarioBean.user.nivel}">
+            		<f:selectItem itemLabel="Administrador" itemValue="admin"/>
+            		<f:selectItem itemLabel="Cliente" itemValue="cliente"/>
+     		   </p:selectOneButton>
+				<p:commandButton value="Cadastrar" action="#{usuarioBean.salvar}" update="form"/>
+				<p:link outcome="login" value="Efetuar Login" id="link"> </p:link>
+			</div>
+		</h:form>
+		
 </h:body>
 </html>

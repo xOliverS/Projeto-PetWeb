@@ -23,12 +23,19 @@ public class LoginBean {
 	public String autenticar() {
 		usr = LoginDAO.buscarLoginSenha(login, senha);
 		
-		if(usr != null) {			
+		if(usr != null) {	
 			autenticadorBean.setUsrLogado(usr);
-			System.out.println("LOGANDO..");
-			return "index.xhtml?faces-redirect=true";
-			
-		}else {
+			if(usr.getNivel().equals("admin")) {
+				autenticadorBean.setNivelAcesso("admin");
+				System.out.println("LOGANDO COMO ADMINISTRADOR..");
+				//return "index.xhtml?faces-redirect=true";
+			}else {
+				System.out.println("LOGANDO COMO USUÁRIO..");
+				autenticadorBean.setNivelAcesso("usuario");
+				//return "cadUsuario.xhtml?faces-redirect=true";
+			}
+			return "index.xhtml";
+		} else {
 			FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não cadastrado!", null);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			return null;

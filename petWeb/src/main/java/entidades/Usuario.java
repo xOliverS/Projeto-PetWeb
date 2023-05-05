@@ -18,15 +18,18 @@ public class Usuario implements Serializable{
 	private Integer id;
 	@Column(name = "login", nullable = false)
 	private String login;
+	@Column(name = "NomeUsuario", nullable = false)
+	private String nomeUsuario;
 	@Column(name = "senha", nullable = false)
 	private String senha;
-	@Column(name = "Administrador", nullable = false)
-	private boolean nivel;
+	@Column(name = "Nivel", nullable = false)
+	private String nivel;
 	
-	public boolean isNivel() {
+	
+	public String getNivel() {
 		return nivel;
 	}
-	public void setNivel(boolean nivel) {
+	public void setNivel(String nivel) {
 		this.nivel = nivel;
 	}
 	public Integer getId() {
@@ -46,5 +49,11 @@ public class Usuario implements Serializable{
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public String getNomeUsuario() {
+		return nomeUsuario;
+	}
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 }

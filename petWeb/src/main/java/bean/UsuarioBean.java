@@ -1,9 +1,13 @@
 package bean;
 
 import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+
 import dao.UsuarioDAO;
 import entidades.Usuario;
 
+@ManagedBean
 public class UsuarioBean {
 	
 	private Usuario user = new Usuario();

@@ -1,16 +1,23 @@
 package bean;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import entidades.Usuario;
 
 @ManagedBean
-@ApplicationScoped
+@SessionScoped
 public class AutenticadorBean {
 
 	private Usuario usrLogado;
+	private String nivelAcesso;
+	
+	/*
+	 * public boolean isUsuarioComNivelDeAcessoSuficiente() { if(usrLogado == null)
+	 * { return false; }else if(usrLogado.isNivel() == true) { return true; }else {
+	 * return false; } }
+	 */
+	
 
 	public Usuario getUsrLogado() {
 		return usrLogado;
@@ -18,5 +25,14 @@ public class AutenticadorBean {
 
 	public void setUsrLogado(Usuario usrLogado) {
 		this.usrLogado = usrLogado;
+	}
+	
+
+	public String getNivelAcesso() {
+		return nivelAcesso;
+	}
+
+	public void setNivelAcesso(String nivelAcesso) {
+		this.nivelAcesso = nivelAcesso;
 	}
 }
