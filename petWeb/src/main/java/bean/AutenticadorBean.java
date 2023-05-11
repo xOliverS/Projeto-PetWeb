@@ -11,13 +11,6 @@ public class AutenticadorBean {
 
 	private Usuario usrLogado;
 	private String nivelAcesso;
-	
-	/*
-	 * public boolean isUsuarioComNivelDeAcessoSuficiente() { if(usrLogado == null)
-	 * { return false; }else if(usrLogado.isNivel() == true) { return true; }else {
-	 * return false; } }
-	 */
-	
 
 	public Usuario getUsrLogado() {
 		return usrLogado;

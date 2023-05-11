@@ -7,6 +7,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+	
 
 	<h:head>
 	<link rel="icon" type="imagem/png" href="/images/icon.png" />
@@ -14,40 +15,54 @@
 	<title>Pet Web</title>
 	</h:head>
 	<h:body>
-
-	 	<nav class="nav">
-			 <div class="card">
-			    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
-			        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
-			            <f:param name="i" value="0"/>
-			        </p:menuitem>
-			        <p:menuitem value="Consultar" outcome="/lista" icon="pi pi-fw pi-calendar">
-			            <f:param name="i" value="1"/>
-			        </p:menuitem>
-			        <p:menuitem value="Cadastrar" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
-			                    disabled="false">
-			            <f:param name="i" value="2"/>
-			        </p:menuitem>
-			        <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-users">
-			            <f:param name="i" value="3"/>
-			        </p:menuitem>
-			        
-			        <p:menuitem value="Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
-			            <f:param name="i" value="4"/>
-			        </p:menuitem>
-			    </p:tabMenu>
-			</div>			
-		</nav>
-			
+	
 			<h:form>
-				<h:outputText value="Seja Bem Vindo(a) #{autenticadorBean.usrLogado.login}!"/>
 				<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
-					<h1>Você é um Administrador !</h1>
+					<nav class="nav">
+						 <div class="card">
+						    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
+						        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
+						            <f:param name="i" value="0"/>
+						        </p:menuitem>
+						        <p:menuitem value="Consultar" outcome="/lista" icon="pi pi-fw pi-calendar">
+						            <f:param name="i" value="1"/>
+						        </p:menuitem>
+						        <p:menuitem value="Cadastrar" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
+						                    disabled="false">
+						            <f:param name="i" value="2"/>
+						        </p:menuitem>
+						        <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-users">
+						            <f:param name="i" value="3"/>
+						        </p:menuitem>
+						        
+						        <p:menuitem value="Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
+						            <f:param name="i" value="4"/>
+						        </p:menuitem>
+						    </p:tabMenu>
+						</div>			
+					</nav>
 				</c:if>
+				<nav class="nav">
+							 <div class="card">
+							    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
+							        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
+							            <f:param name="i" value="0"/>
+							        </p:menuitem>
+							        <p:menuitem value="Meus agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
+							            <f:param name="i" value="1"/>
+							        </p:menuitem>
+							        <p:menuitem value="Agendar Serviço" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
+							                    disabled="false">
+							            <f:param name="i" value="2"/>
+							        </p:menuitem>
+							    </p:tabMenu>
+							</div>			
+						</nav>
 				<c:if test="#{autenticadorBean.nivelAcesso == 'cliente'}">
-					<h1>Você não é um Administrador !</h1>
+						
 				</c:if>
-				<p:commandButton value="Sair" action="#{loginBean.sair}"/>
+				<h:outputText value="Seja Bem Vindo(a) #{autenticadorBean.usrLogado.login}!"/>
+				<p:commandButton value="Sair" action="#{loginBean.sair}" style="float: right;"/>
 			</h:form>
 			
 		<div style="display: flex; justify-content: space-around; margin-top: 50px; ">
