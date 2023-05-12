@@ -18,3 +18,9 @@ body{
 	justify-content: center;
 }
 
+.logout{
+	position: relative;
+	margin-right: 15px;
+	top: -40px;
+	float: right;
+}

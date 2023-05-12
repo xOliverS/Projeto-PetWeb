@@ -11,12 +11,11 @@
 
 	<h:head>
 	<link rel="icon" type="imagem/png" href="/images/icon.png" />
-	<link rel="stylesheet" type="text/css" href="home.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/home.css" media="screen" />
 	<title>Pet Web</title>
 	</h:head>
 	<h:body>
-	
-			<h:form>
+		<h:form>
 				<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
 					<nav class="nav">
 						 <div class="card">
@@ -42,32 +41,33 @@
 						</div>			
 					</nav>
 				</c:if>
-				<nav class="nav">
-							 <div class="card">
-							    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
-							        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
-							            <f:param name="i" value="0"/>
-							        </p:menuitem>
-							        <p:menuitem value="Meus agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
-							            <f:param name="i" value="1"/>
-							        </p:menuitem>
-							        <p:menuitem value="Agendar Serviço" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
-							                    disabled="false">
-							            <f:param name="i" value="2"/>
-							        </p:menuitem>
-							    </p:tabMenu>
-							</div>			
-						</nav>
 				<c:if test="#{autenticadorBean.nivelAcesso == 'cliente'}">
-						
+					<nav class="nav">
+						<div class="card">
+							<p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
+								<p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
+							    	<f:param name="i" value="0"/>
+							    </p:menuitem>
+							    <p:menuitem value="Meus agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
+							        <f:param name="i" value="1"/>
+							    </p:menuitem>
+							    <p:menuitem value="Agendar Serviço" outcome="/cadServico" icon="pi pi-fw pi-user-plus" disabled="false">
+							        <f:param name="i" value="2"/>
+							    </p:menuitem>
+							</p:tabMenu>
+							
+						</div>			
+					</nav>
 				</c:if>
-				<h:outputText value="Seja Bem Vindo(a) #{autenticadorBean.usrLogado.login}!"/>
-				<p:commandButton value="Sair" action="#{loginBean.sair}" style="float: right;"/>
+				<div class="logout">
+					<h:outputText value="Bem Vindo(a) #{autenticadorBean.usrLogado.login}! " />
+					<p:commandButton value=" Sair" action="#{loginBean.sair}" />
+				</div>
 			</h:form>
 			
 		<div style="display: flex; justify-content: space-around; margin-top: 50px; ">
-			<div style="max-width: 500px;">
-				<p:card style="width: 25em; height: 20px;">
+			<div class="card-itens">
+				<p:card style="width: 25em;">
 				    <f:facet name="header">
 				        <img alt="user header" src="images/04.jpg"/>
 				    </f:facet>
@@ -82,7 +82,7 @@
 					Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop.</p>
 				
 				    <f:facet name="footer">
-				        <p:commandButton icon="pi pi-check-square" value="Agendar"/>
+				        <p:button icon="pi pi-check-square" value="Agendar" outcome="cadServico.xhtml"/>
 				    </f:facet>
 				</p:card>
 			</div>
@@ -103,7 +103,7 @@
 					Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop. </p>
 				
 				    <f:facet name="footer">
-				        <p:commandButton icon="pi pi-check-square" value="Agendar"/>
+				        <p:button icon="pi pi-check-square" value="Agendar" outcome="cadServico.xhtml"/>
 				    </f:facet>
 				</p:card>
 			</div>
@@ -123,7 +123,7 @@
 				Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop. </p>
 			
 			    <f:facet name="footer">
-			        <p:commandButton icon="pi pi-check-square" value="Agendar" />
+			        <p:button icon="pi pi-check-square" value="Agendar" outcome="cadServico.xhtml"/>
 			    </f:facet>
 			</p:card>
 			</div>

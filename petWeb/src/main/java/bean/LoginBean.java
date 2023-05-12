@@ -31,7 +31,7 @@ public class LoginBean {
 				//return "index.xhtml?faces-redirect=true";
 			}else {
 				System.out.println("LOGANDO COMO USUÁRIO..");
-				autenticadorBean.setNivelAcesso("usuario");
+				autenticadorBean.setNivelAcesso("cliente");
 				//return "cadUsuario.xhtml?faces-redirect=true";
 			}
 			return "index.xhtml";

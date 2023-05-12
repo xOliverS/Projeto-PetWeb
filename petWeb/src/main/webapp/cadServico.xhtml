@@ -3,38 +3,67 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 	
 
 <h:head>
-	<link rel="stylesheet" type="text/css" href="cadService.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/home.css" media="screen" />
 	<title>Pet Web</title>
 </h:head>
 
 <h:body style="background: url('./images/banner.jpg')">
-	
-	<nav class="nav">
-			 <div class="card">
-			    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
-			        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
-			            <f:param name="i" value="0"/>
-			        </p:menuitem>
-			        <p:menuitem value="Consultar" outcome="/index" icon="pi pi-fw pi-calendar">
-			            <f:param name="i" value="1"/>
-			        </p:menuitem>
-			        <p:menuitem value="Cadastrar" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
-			                    disabled="false">
-			            <f:param name="i" value="2"/>
-			        </p:menuitem>
-			        <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-users">
-			            <f:param name="i" value="4"/>
-			        </p:menuitem>
-			    </p:tabMenu>
-			</div>			
-		</nav>
-		
+	<h:form>
+		<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
+					<nav class="nav">
+						 <div class="card">
+						    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
+						        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
+						            <f:param name="i" value="0"/>
+						        </p:menuitem>
+						        <p:menuitem value="Consultar" outcome="/lista" icon="pi pi-fw pi-calendar">
+						            <f:param name="i" value="1"/>
+						        </p:menuitem>
+						        <p:menuitem value="Cadastrar" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
+						                    disabled="false">
+						            <f:param name="i" value="2"/>
+						        </p:menuitem>
+						        <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-users">
+						            <f:param name="i" value="3"/>
+						        </p:menuitem>
+						        
+						        <p:menuitem value="Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
+						            <f:param name="i" value="4"/>
+						        </p:menuitem>
+						    </p:tabMenu>
+						</div>			
+					</nav>
+				</c:if>
+				<c:if test="#{autenticadorBean.nivelAcesso == 'cliente'}">
+					<nav class="nav">
+						<div class="card">
+							<p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
+								<p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
+							    	<f:param name="i" value="0"/>
+							    </p:menuitem>
+							    <p:menuitem value="Meus agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
+							        <f:param name="i" value="1"/>
+							    </p:menuitem>
+							    <p:menuitem value="Agendar Serviço" outcome="/cadServico" icon="pi pi-fw pi-user-plus" disabled="false">
+							        <f:param name="i" value="2"/>
+							    </p:menuitem>
+							</p:tabMenu>
+						</div>			
+					</nav>
+				</c:if>
+		<div class="logout">
+			<h:outputText value="Bem Vindo(a) #{autenticadorBean.usrLogado.login}! " />
+			<p:commandButton value=" Sair" action="#{loginBean.sair}" />
+		</div>
+			
+		</h:form>
 		<h:form id="form">
 		<p:panel header="Página de cadastro" style="margin-top: 50px; max-width: vw; display: flex; justify-content:center;">
 			<p:panelGrid columns="2">
