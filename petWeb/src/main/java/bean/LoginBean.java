@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+
 import dao.LoginDAO;
 import entidades.Usuario;
 

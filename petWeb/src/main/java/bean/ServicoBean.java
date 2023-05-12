@@ -2,7 +2,7 @@ package bean;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import static util.MessageUTIL.*;
 
 import dao.ServicoDAO;
 import entidades.Servico;
@@ -19,11 +19,10 @@ public class ServicoBean {
 		
 		try {
 			ServicoDAO.salvar(serv);
+			sucesso("Sucesso", "Agendamento realizado com sucesso !");
 			serv = new Servico();
-			System.out.println("DEU CERTO");
-			
 		} catch (Exception e) {
-			System.out.println("PIFOU");
+			erro("Erro", "Erro ao agendar serviço" + e);
 		}
 		return null;
 	}

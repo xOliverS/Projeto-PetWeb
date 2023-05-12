@@ -60,7 +60,7 @@
 					</nav>
 				</c:if>
 				<div class="logout">
-					<h:outputText value="Bem Vindo(a) #{autenticadorBean.usrLogado.login}! " />
+					<h:outputText value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " icon="pi pi-fw pi-user-plus"/>
 					<p:commandButton value=" Sair" action="#{loginBean.sair}" />
 				</div>
 			</h:form>

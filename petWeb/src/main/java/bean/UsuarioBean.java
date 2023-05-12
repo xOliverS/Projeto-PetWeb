@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 
 import dao.UsuarioDAO;
 import entidades.Usuario;
+import static util.MessageUTIL.*;
 
 @ManagedBean
 public class UsuarioBean {
@@ -17,11 +18,10 @@ public class UsuarioBean {
 			
 			try {
 				UsuarioDAO.salvar(user);
+				sucesso("Sucesso", "Usuário cadastrado com sucesso !");
 				user = new Usuario();
-				System.out.println("Usuário Cadastrado");
-				
 			} catch (Exception e) {
-				System.out.println("Erro no cadastro de usuário");
+				erro("Erro", "Erro no cadastro de usuário" + e);
 			}
 			return null;
 		}
