@@ -27,6 +27,13 @@ public class ServicoBean {
 		return null;
 	}
 	
+	public String deletar() {
+		ServicoDAO.deletar(serv);
+		sucesso("Sucesso", "Agendamento removido !");
+		list = ServicoDAO.listarTodos();
+		return null;
+	}
+	
 	public List<Servico> getLista() {
 		if (list == null) {
 			list = ServicoDAO.listarTodos();

@@ -64,18 +64,24 @@
 		</div>
 			
 		</h:form>
+		
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+		
 		<h:form id="form">
-		<p:panel header="Página de cadastro" style="margin-top: 50px; max-width: vw; display: flex; justify-content:center;">
-			<p:panelGrid columns="2">
-			
-				<p:outputLabel value="Tipo de serviço"/>
-				<p:inputText value="#{servicoBean.serv.tipoServico}" placeholder="Ex: Banho, Tosa"/>	
+			<div class="center">
+				<p:outputLabel value="Tipo de serviço"/>	
+				<p:selectOneButton value="#{servicoBean.serv.tipoServico}">
+		        	<f:selectItem itemLabel="Banho" itemValue="Banho"/>
+		        	<f:selectItem itemLabel="Tosa" itemValue="Tosa"/>
+		        	<f:selectItem itemLabel="Banho e Tosa" itemValue="BanhoTosa"/>
+		        </p:selectOneButton>
 				
 				<p:outputLabel value="Tipo de animal"/>
-				 <p:selectOneButton value="#{servicoBean.serv.tipoAnimal}">
-		            <f:selectItem itemLabel="Cachorro" itemValue="Cachorro"/>
-		            <f:selectItem itemLabel="Gato" itemValue="Gato"/>
-		            <f:selectItem itemLabel="Coelho" itemValue="Coelho"/>
+				<p:selectOneButton value="#{servicoBean.serv.tipoAnimal}">
+		        	<f:selectItem itemLabel="Cachorro" itemValue="Cachorro"/>
+		        	<f:selectItem itemLabel="Gato" itemValue="Gato"/>
 		        </p:selectOneButton>
 		        
 		        <p:outputLabel value="Valor do Serviço"/>
@@ -83,11 +89,8 @@
 		        <p:outputLabel value="Observações"/>
 		        <p:inputTextarea rows="6" cols="33" value="#{servicoBean.serv.anotacoes}"/>
 		        <p:commandButton value="Salvar" action="#{servicoBean.salvar}" update="form"/>
-		        
-		        
-			</p:panelGrid>
-		</p:panel>
-	</h:form>
+			</div>
+		</h:form>
 </h:body>
 
 </html>

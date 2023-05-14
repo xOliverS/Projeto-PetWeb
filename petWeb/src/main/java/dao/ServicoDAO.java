@@ -19,10 +19,20 @@ public class ServicoDAO {
 	
 	public static List<Servico> listarTodos(){
 		EntityManager em = JPAUTIL.criarEntity();
-		Query q = em.createQuery("select s from Funcionario s");
+		Query q = em.createQuery("select s from Servico s");
 		List<Servico> lista = q.getResultList();
 		em.close();
 		return lista;
+	}
+	
+	public static void deletar(Servico s) {
+		EntityManager em = JPAUTIL.criarEntity();
+		em.getTransaction().begin();
+		s = em.find(Servico.class, s.getId());
+		em.remove(s);
+		em.getTransaction().commit();
+		em.close();
+		
 	}
 	
 	public static Servico getId(Integer id) {

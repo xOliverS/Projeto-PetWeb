@@ -15,6 +15,9 @@
 
 <h:body>
 	<h:form>
+	<p:messages id="messages" showDetail="true" closable="true">
+		<p:autoUpdate />
+	</p:messages>
 		<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
 					<nav class="nav">
 						 <div class="card">
@@ -22,18 +25,14 @@
 						        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
 						            <f:param name="i" value="0"/>
 						        </p:menuitem>
-						        <p:menuitem value="Consultar" outcome="/lista" icon="pi pi-fw pi-calendar">
+						        <p:menuitem value="Agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
 						            <f:param name="i" value="1"/>
 						        </p:menuitem>
-						        <p:menuitem value="Cadastrar" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
+						        <p:menuitem value="Realizar Agendamento" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
 						                    disabled="false">
 						            <f:param name="i" value="2"/>
 						        </p:menuitem>
-						        <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-users">
-						            <f:param name="i" value="3"/>
-						        </p:menuitem>
-						        
-						        <p:menuitem value="Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
+						        <p:menuitem value="Cadastrar Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
 						            <f:param name="i" value="4"/>
 						        </p:menuitem>
 						    </p:tabMenu>
@@ -61,7 +60,22 @@
 			<h:outputText value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " />
 			<p:commandButton value=" Sair" action="#{loginBean.sair}" />
 		</div>
+		
+	<p:dataTable value="#{servicoBean.list}" var="s" rowKey="#{s.id}" id="eventsDT">
+		<f:facet name="header"> Agendamentos Realizados </f:facet>
+			<p:column headerText="Serviço"><p:outputLabel value="#{s.tipoServico}"/></p:column>
+			<p:column headerText="Animal"><p:outputLabel value="#{s.tipoAnimal}"/></p:column>
+			<p:column headerText="Valor"><p:outputLabel value="#{s.valorServico}"/></p:column>
+			<p:column headerText="Anotações"><p:outputLabel value="#{s.anotacoes}"/></p:column>
+			<p:column headerText="Deletar" style="width:3rem;text-align: center">
+	        	<p:commandButton icon="pi pi-trash" action="#{servicoBean.deletar}" ajax="false">
+	            	<f:setPropertyActionListener value="#{s}" target="#{servicoBean.serv}" />
+	        	</p:commandButton>
+            	</p:column>
+	</p:dataTable>
 	</h:form>
+	
+	
 
 </h:body>
 </html>
