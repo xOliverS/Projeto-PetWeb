@@ -78,7 +78,12 @@
 					Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop.</p>
 				
 				    <f:facet name="footer">
-				        <p:button icon="pi pi-check-square" value="Agendar" outcome="cadServico.xhtml"/>
+				        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('editarDialog').show()">
+	                	</p:commandButton>
+	                		<p:dialog header="Tosa - Detalhes" widgetVar="editarDialog" 
+					         	resizable="false" modal="true" dynamic="true" showEffect="fade">
+							    <p:outputLabel value="A Tosa é uma coisa meio tosada, onde você sai cortando os pelin dos bixin.. e é isso.}"/>
+							</p:dialog>
 				    </f:facet>
 				</p:card>
 			</div>
@@ -99,7 +104,12 @@
 					Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop. </p>
 				
 				    <f:facet name="footer">
-				        <p:button icon="pi pi-check-square" value="Agendar" outcome="cadServico.xhtml"/>
+				        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('editarDialog').show()">
+	                	</p:commandButton>
+	                		<p:dialog header="Banho - Detalhes" widgetVar="editarDialog" 
+					         	resizable="false" modal="true" dynamic="true" showEffect="fade">
+							    <p:outputLabel value="O Banho é uma coisa meio banhado. Dia de sábado é o dia correto para tomar banho}"/>
+							</p:dialog>
 				    </f:facet>
 				</p:card>
 			</div>
@@ -119,7 +129,12 @@
 				Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop. </p>
 			
 			    <f:facet name="footer">
-			        <p:button icon="pi pi-check-square" value="Agendar" outcome="cadServico.xhtml"/>
+			        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('editarDialog').show()">
+	                	</p:commandButton>
+	                		<p:dialog header="Banho e Tosa - Detalhes" widgetVar="editarDialog" 
+					         	resizable="false" modal="true" dynamic="true" showEffect="fade">
+							    <p:outputLabel value="O Banho e a Tosa é uma coisa meio banhada e tosada, você fica chei de pelo solto, ai precisa tomar banho}"/>
+							</p:dialog>
 			    </f:facet>
 			</p:card>
 			</div>
