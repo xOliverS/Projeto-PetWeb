@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
@@ -12,7 +13,35 @@
 	<title>Cadastro Usuario</title>
 </h:head>
 
-<h:body>		
+<h:body>
+	<h:form>
+		<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
+					<nav class="nav">
+						 <div class="card">
+						    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
+						        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
+						            <f:param name="i" value="0"/>
+						        </p:menuitem>
+						        <p:menuitem value="Agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
+						            <f:param name="i" value="1"/>
+						        </p:menuitem>
+						        <p:menuitem value="Realizar Agendamento" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
+						                    disabled="false">
+						            <f:param name="i" value="2"/>
+						        </p:menuitem>
+						        <p:menuitem value="Cadastrar Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
+						            <f:param name="i" value="4"/>
+						        </p:menuitem>
+						    </p:tabMenu>
+						</div>			
+					</nav>		
+			</c:if>
+					<div class="logout">
+						<h:outputText value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " />
+						<p:commandButton value=" Sair" action="#{loginBean.sair}" />
+					</div>
+			
+		</h:form>		
 		<h:form id="form">
 			<p:messages id="messages" showDetail="true" closable="true">
 		    	<p:autoUpdate />
@@ -20,17 +49,18 @@
 			<div class="login">	
 				
 				<p:outputLabel value="Nome de Usuário"/>
-				<p:inputText value="#{usuarioBean.user.nomeUsuario}"/>
+				<p:inputText value="#{usuarioBean.user.nomeUsuario}" required="true"/>
 				
 				<p:outputLabel value="login"/>
-				<p:inputText value="#{usuarioBean.user.login}"/>
+				<p:inputText value="#{usuarioBean.user.login}" required="true"/>
 				
 				<p:outputLabel value="Senha"/>
-				<p:inputText value="#{usuarioBean.user.senha}"/>
+				<p:password id="pwd1" value="#{usuarioBean.user.senha}" match="pwd2" label="Password 1" required="true"/>
+				<p:outputLabel value="Confirme a senha"/>
+				<p:password id="pwd2" value="#{usuarioBean.user.senha}" label="Password 2" required="true"/>
 				
-				<p:outputLabel value="Administrador"/>
+				<p:outputLabel value="Nivel de Acesso"/>
 				<p:selectOneButton value="#{usuarioBean.user.nivel}">
-            		<f:selectItem itemLabel="Administrador" itemValue="admin"/>
             		<f:selectItem itemLabel="Cliente" itemValue="cliente"/>
      		   </p:selectOneButton>
 				<p:commandButton value="Cadastrar" action="#{usuarioBean.salvar}" update="form"/>

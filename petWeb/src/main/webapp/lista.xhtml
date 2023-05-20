@@ -67,6 +67,7 @@
 			<p:column headerText="Animal"><p:outputLabel value="#{s.tipoAnimal}"/></p:column>
 			<p:column headerText="Valor"><p:outputLabel value="#{s.valorServico}"/></p:column>
 			<p:column headerText="Anotações"><p:outputLabel value="#{s.anotacoes}"/></p:column>
+			<p:column headerText="DataAgendamento"><p:outputLabel value="#{s.dataServico}" /> </p:column>
 			<p:column headerText="Deletar" style="width:3rem;text-align: center">
 	        	<p:commandButton icon="pi pi-trash" action="#{servicoBean.deletar}" ajax="false">
 	            	<f:setPropertyActionListener value="#{s}" target="#{servicoBean.serv}" />

@@ -23,18 +23,14 @@
 						        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
 						            <f:param name="i" value="0"/>
 						        </p:menuitem>
-						        <p:menuitem value="Consultar" outcome="/lista" icon="pi pi-fw pi-calendar">
+						        <p:menuitem value="Agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
 						            <f:param name="i" value="1"/>
 						        </p:menuitem>
-						        <p:menuitem value="Cadastrar" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
+						        <p:menuitem value="Realizar Agendamento" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
 						                    disabled="false">
 						            <f:param name="i" value="2"/>
 						        </p:menuitem>
-						        <p:menuitem value="Login" outcome="/login" icon="pi pi-fw pi-users">
-						            <f:param name="i" value="3"/>
-						        </p:menuitem>
-						        
-						        <p:menuitem value="Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
+						        <p:menuitem value="Cadastrar Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
 						            <f:param name="i" value="4"/>
 						        </p:menuitem>
 						    </p:tabMenu>
@@ -85,9 +81,14 @@
 		        </p:selectOneButton>
 		        
 		        <p:outputLabel value="Valor do Serviço"/>
-		        <p:inputNumber id="input1" value="#{servicoBean.serv.valorServico}" modifyValueOnWheel="false" />
+		        <p:inputNumber placeholder="R$ 45,00" id="input1" value="#{servicoBean.serv.valorServico}" modifyValueOnWheel="false" />
+		        
+		        <p:outputLabel for="time" value="Time"/>
+                <p:datePicker id="time" value="#{servicoBean.serv.dataServico}" showTime="true"/>
+		        
 		        <p:outputLabel value="Observações"/>
 		        <p:inputTextarea rows="6" cols="33" value="#{servicoBean.serv.anotacoes}"/>
+		        
 		        <p:commandButton value="Salvar" action="#{servicoBean.salvar}" update="form"/>
 			</div>
 		</h:form>
