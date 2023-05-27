@@ -61,7 +61,7 @@
 				</div>
 			</h:form>
 			
-		<div style="display: flex; justify-content: space-around; margin-top: 50px; ">
+		<div style="display: flex; justify-content: space-around; margin-top: 50px; " class="cards">
 			<div class="card-itens">
 				<p:card style="width: 25em;">
 				    <f:facet name="header">
@@ -71,18 +71,29 @@
 				        Tosa
 				    </f:facet>
 				    <f:facet name="subtitle">
-				        PROMOÇÃO
+				        PROMOÇÃO <br/> <span class="precoAntigo">R$60,00</span> <span class="precoPromocional">R$ 45,00</span>
 				    </f:facet>
 				
-				    <p>Estamos no período mais quente do verão, o que nos leva a pensar também em como manter a higiene dos nossos peludos em dia. 
-					Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop.</p>
+				    <p>Além de deixar a aparência do pet mais agradável, a tosa pode evitar pelo menos dois problemas de saúde: a proliferação de bactérias e fungos na pelagem e presença de parasitas, como pulgas e carrapatos. Outra vantagem é que o corte de pêlos na parte de baixo das patinhas, pode evitar escorregões, prevenindo contra acidentes.</p>
 				
 				    <f:facet name="footer">
-				        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('editarDialog').show()">
+				        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('tosaDialog').show()">
 	                	</p:commandButton>
-	                		<p:dialog header="Tosa - Detalhes" widgetVar="editarDialog" 
+	                		<p:dialog header="Tosa - Detalhes" widgetVar="tosaDialog" 
 					         	resizable="false" modal="true" dynamic="true" showEffect="fade">
-							    <p:outputLabel value="A Tosa é uma coisa meio tosada, onde você sai cortando os pelin dos bixin.. e é isso.}"/>
+							    <p:outputLabel escape="false">
+							    	Além de deixar a aparência do pet mais agradável, a tosa pode evitar pelo menos dois problemas de saúde:<br/> 
+							    	a proliferação de bactérias e fungos na pelagem e presença de parasitas, como pulgas e carrapatos.<br/> 
+							    	Outra vantagem é que o corte de pêlos na parte de baixo das patinhas, pode evitar escorregões, prevenindo contra acidentes.<br/> 
+							    	E ai, ficou em dúvida em que tipo de tosa escolher?<br/> 
+							    	Nós te ajudamos com essa dúvida. Existem seis tipos de tosa sendo elas:<br/> 
+							    	Tosa higiênica (Sem restrições quanto à raça. É feita para reduzir o comprimento dos pêlos em lugares específicos, como patas, barriga e genitália)<br/> 
+							    	Tosa na tesoura ( traz um melhor acabamento e é indicada para pets que ficam agitados com o barulho da máquina, que possuem alergia à lâmina ou, ainda<br/> 
+							    	para pets de pêlo médio e longo)<br/>Tosa na máquina (É realizada por profissionais capacitados, afinal só eles vão saber a lâmina certa para o tipo de pelo do pet)<br/>
+							    	Tosa bebê (Esse tipo de tosa visa deixar o pet com aparência infantil, com pelos curtos e arredondados, além de facilitar a escovação)<br/>
+							    	Tosa de raça (Mantém as características próprias da raça) e por fim a Tosa verão ( é indicado de acordo com a avaliação do profissional, e geralmente acontece quando<br/>
+							    	 o pet está com muito nós. Porém visto que exista uma complexidade e riscos, o tutor deve ter conhecimento e autorizar os serviços). 
+							    </p:outputLabel>
 							</p:dialog>
 				    </f:facet>
 				</p:card>
@@ -97,20 +108,28 @@
 				        Banho
 				    </f:facet>
 				    <f:facet name="subtitle">
-				        PROMOÇÃO
+				        PROMOÇÃO <br/> <span class="precoAntigo">R$70,00</span> <span class="precoPromocional">R$ 45,00</span>
 				    </f:facet>
 				
 				    <p>Estamos no período mais quente do verão, o que nos leva a pensar também em como manter a higiene dos nossos peludos em dia. 
-					Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop. </p>
+					Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro. </p>
 				
-				    <f:facet name="footer">
-				        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('editarDialog').show()">
-	                	</p:commandButton>
-	                		<p:dialog header="Banho - Detalhes" widgetVar="editarDialog" 
-					         	resizable="false" modal="true" dynamic="true" showEffect="fade">
-							    <p:outputLabel value="O Banho é uma coisa meio banhado. Dia de sábado é o dia correto para tomar banho}"/>
+					<f:facet name="footer">
+						<p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('banhoDialog').show()">
+						</p:commandButton>
+							<p:dialog header="Banho - Detalhes" widgetVar="banhoDialog" 
+								resizable="false" modal="true" dynamic="true" showEffect="fade">
+								<p:outputLabel escape="false">
+							    	O que é melhor? Banho em pet shop ou em casa?<br/>
+							    	Essa é uma dúvida frequente em quem tem um pet.<br/> 
+							    	É claro que a escolha entre banho em pet shop ou em casa é individual, porém<br/> se você parar para pensar, 
+							    	perceberá que em casa não terá uma estrutura adequada para banho, não é mesmo?<br/>
+									Nosso serviço de banho conta com local adequado monitorado por câmeras, equipe treinada, 
+									produtos de qualidade<br/>e além disso, nosso serviço de banho é completo, seu pet sairá cheirosinho, 
+									com unhas cortadas e orrelhas limpinhas.<br/> Tá esperando o quê? Agenda teu horário, seu pet vai adorar!
+							    </p:outputLabel>
 							</p:dialog>
-				    </f:facet>
+					</f:facet>
 				</p:card>
 			</div>
 			<div class="card-itens">
@@ -122,22 +141,32 @@
 			        Banho e Tosa
 			    </f:facet>
 			    <f:facet name="subtitle">
-			        PROMOÇÃO
+			        PROMOÇÃO <br/> <span class="precoAntigo">R$90,00</span> <span class="precoPromocional">R$ 45,00</span>
 			    </f:facet>
 			
-			    <p>Estamos no período mais quente do verão, o que nos leva a pensar também em como manter a higiene dos nossos peludos em dia. 
-				Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro, o mesmo acontece com seu cãozinho depois de um bom dia no pet shop. </p>
+			    <p>Animal de estimação sempre vai precisar de banho e tosa, né? E foi pensando nisso que disponibilizamos neste serviço a qualidade do banho e tosa juntos, com produtos e profissionais de qualidade e um precinho mega especial para você. Nesse combo ele ganha uma super hidratação garantindo pêlos macios e brilhantes.</p>
 			
 			    <f:facet name="footer">
-			        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('editarDialog').show()">
+			        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('BanhoTosaDialog').show()">
 	                	</p:commandButton>
-	                		<p:dialog header="Banho e Tosa - Detalhes" widgetVar="editarDialog" 
+	                		<p:dialog header="Banho e Tosa - Detalhes" widgetVar="BanhoTosaDialog" 
 					         	resizable="false" modal="true" dynamic="true" showEffect="fade">
-							    <p:outputLabel value="O Banho e a Tosa é uma coisa meio banhada e tosada, você fica chei de pelo solto, ai precisa tomar banho}"/>
+							    <p:outputLabel escape="false">
+							    	Animal de estimação sempre vai precisar de banho e tosa, né? E foi pensando nisso que disponibilizamos<br/> 
+							    neste serviço a qualidade do banho e tosa juntos, com produtos e profissionais de qualidade e um precinho<br/>mega especial para 
+							    você. Nesse combo, além de garantir serviço completo ao seu pet, ele ganha uma super hidratação<br/> garantindo pêlos macios e
+							    brilhantes. Você não vai querer perder, vai?
+							    </p:outputLabel>
 							</p:dialog>
 			    </f:facet>
 			</p:card>
 			</div>
 		</div>
+		
+		<div class="footer">
+    		<div class="footer-content">
+      			<p>Todos os direitos reservados pela equipe de Dev Unifametro - PI IV </p>
+    		</div>
+  		</div>
 	</h:body>
 </html>

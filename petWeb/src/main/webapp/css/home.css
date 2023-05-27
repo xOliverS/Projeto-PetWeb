@@ -18,6 +18,10 @@ body{
 	justify-content: center;
 }
 
+.cards{
+	min-height: calc(100vh - 50px);
+}
+
 .logout{
 	position: relative;
 	margin-right: 15px;
@@ -38,3 +42,25 @@ body{
 	font-weight: bold;
 }
 
+.precoAntigo{
+	text-decoration: line-through;
+}
+
+.precoPromocional{
+	font-size: 22px;
+}
+
+.footer {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+p {
+  color: #666;
+}
