@@ -15,26 +15,25 @@
 	
 	<h:body>
 		
-		<h1>SEJA BEM VINDO</h1>
+		<h1>SEJA BEM VINDO(A)</h1>
 		
 		<h:form>
 		<div class="login">
-		<h:outputLabel for="login" value="Login:" />
-        <h:inputText id="login" value="#{loginBean.login}" />
+			<div class="center">
+				<h:outputLabel for="login" value="Login:" />
+		        <h:inputText id="login" class="input-login" value="#{loginBean.login}" />
+		
+		        <h:outputLabel for="senha" value="Senha:" />
+		        <h:inputSecret id="senha" class="input-senha" value="#{loginBean.senha}" />
+		
+		        <h:commandButton value="Entrar" action="#{loginBean.autenticar}" />
 
-        <h:outputLabel for="senha" value="Senha:" />
-        <h:inputSecret id="senha" value="#{loginBean.senha}" />
-
-        <h:commandButton value="Entrar" action="#{loginBean.autenticar}" />
-
-
-		<div class="registro">
+			<div class="registro">
 				<span class="conta">Não tem uma conta ?  </span>
 				<p:link outcome="cadUsuario" value="Cadastre-se aqui" id="link"> </p:link>
-				<span> Esqueci a senha </span>
-		</div>
+			</div>
 		
-		
+			</div>
 		
         <h:message for="login" />
         <h:message for="senha" />

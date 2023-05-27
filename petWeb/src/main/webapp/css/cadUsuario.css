@@ -1,12 +1,14 @@
 @charset "ISO-8859-1";
 
 .login{
-	width: vw;
-	height: vh; 
+	width: 100vw;
+	height: 50vh; 
 	display: flex; 
 	justify-content: center; 
 	flex-direction: column; 
 	align-items: center;
+	border: 1px solid #ccc;
+  	border-radius: 5px;
 }
 
 .logout{
@@ -15,3 +17,4 @@
 	top: -40px;
 	float: right;
 }
+

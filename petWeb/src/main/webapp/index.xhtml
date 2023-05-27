@@ -31,7 +31,7 @@
 						            <f:param name="i" value="2"/>
 						        </p:menuitem>
 						        <p:menuitem value="Cadastrar Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
-						            <f:param name="i" value="4"/>
+						            <f:param name="i" value="3"/>
 						        </p:menuitem>
 						    </p:tabMenu>
 						</div>			
@@ -56,14 +56,14 @@
 					</nav>
 				</c:if>
 				<div class="logout">
-					<h:outputText value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " icon="pi pi-fw pi-user-plus"/>
+					<h:outputText styleClass="nomeUsuario" value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " icon="pi pi-fw pi-user-plus"/>
 					<p:commandButton value=" Sair" action="#{loginBean.sair}" />
 				</div>
 			</h:form>
 			
 		<div style="display: flex; justify-content: space-around; margin-top: 50px; " class="cards">
 			<div class="card-itens">
-				<p:card style="width: 25em;">
+				<p:card styleClass="p-card">
 				    <f:facet name="header">
 				        <img alt="user header" src="images/04.jpg"/>
 				    </f:facet>
@@ -71,13 +71,13 @@
 				        Tosa
 				    </f:facet>
 				    <f:facet name="subtitle">
-				        PROMOÇÃO <br/> <span class="precoAntigo">R$60,00</span> <span class="precoPromocional">R$ 45,00</span>
+				        <span class="promo">PROMOÇÃO</span> <br/> <span class="precoAntigo">R$60,00</span> <span class="precoPromocional">R$ 45,00</span>
 				    </f:facet>
 				
 				    <p>Além de deixar a aparência do pet mais agradável, a tosa pode evitar pelo menos dois problemas de saúde: a proliferação de bactérias e fungos na pelagem e presença de parasitas, como pulgas e carrapatos. Outra vantagem é que o corte de pêlos na parte de baixo das patinhas, pode evitar escorregões, prevenindo contra acidentes.</p>
 				
 				    <f:facet name="footer">
-				        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('tosaDialog').show()">
+				        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('tosaDialog').show()" style="background-color: #027b9e;">
 	                	</p:commandButton>
 	                		<p:dialog header="Tosa - Detalhes" widgetVar="tosaDialog" 
 					         	resizable="false" modal="true" dynamic="true" showEffect="fade">
@@ -100,7 +100,7 @@
 			</div>
 		
 			<div class="card-itens">
-				<p:card style="width: 25em;">
+				<p:card styleClass="p-card">
 				    <f:facet name="header">
 				        <img alt="user header" src="images/08RED.jpg"/>
 				    </f:facet>
@@ -108,16 +108,16 @@
 				        Banho
 				    </f:facet>
 				    <f:facet name="subtitle">
-				        PROMOÇÃO <br/> <span class="precoAntigo">R$70,00</span> <span class="precoPromocional">R$ 45,00</span>
+				        <span class="promo">PROMOÇÃO</span> <br/> <span class="precoAntigo">R$70,00</span> <span class="precoPromocional">R$ 45,00</span>
 				    </f:facet>
 				
 				    <p>Estamos no período mais quente do verão, o que nos leva a pensar também em como manter a higiene dos nossos peludos em dia. 
 					Embora os cães não precisem de um banho diário como nós, há todo um ritual de cuidados com a limpeza deles. Assim como você se sente revigorado ao sair do chuveiro. </p>
 				
 					<f:facet name="footer">
-						<p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('banhoDialog').show()">
+						<p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('banhoDialog').show()" style="background-color: #027b9e;" >
 						</p:commandButton>
-							<p:dialog header="Banho - Detalhes" widgetVar="banhoDialog" 
+							<p:dialog header="Banho - Detalhes" widgetVar="banhoDialog"
 								resizable="false" modal="true" dynamic="true" showEffect="fade">
 								<p:outputLabel escape="false">
 							    	O que é melhor? Banho em pet shop ou em casa?<br/>
@@ -133,7 +133,7 @@
 				</p:card>
 			</div>
 			<div class="card-itens">
-			<p:card style="width: 25em">
+			<p:card styleClass="p-card">
 			    <f:facet name="header">
 			        <img alt="user header" src="images/07RED.jpeg"/>
 			    </f:facet>
@@ -141,13 +141,13 @@
 			        Banho e Tosa
 			    </f:facet>
 			    <f:facet name="subtitle">
-			        PROMOÇÃO <br/> <span class="precoAntigo">R$90,00</span> <span class="precoPromocional">R$ 45,00</span>
+			        <span class="promo">PROMOÇÃO</span> <br/> <span class="precoAntigo">R$90,00</span> <span class="precoPromocional">R$ 45,00</span>
 			    </f:facet>
 			
 			    <p>Animal de estimação sempre vai precisar de banho e tosa, né? E foi pensando nisso que disponibilizamos neste serviço a qualidade do banho e tosa juntos, com produtos e profissionais de qualidade e um precinho mega especial para você. Nesse combo ele ganha uma super hidratação garantindo pêlos macios e brilhantes.</p>
 			
 			    <f:facet name="footer">
-			        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('BanhoTosaDialog').show()">
+			        <p:commandButton icon="pi pi-info-circle" value="Saiba mais" oncomplete="PF('BanhoTosaDialog').show()" style="background-color: #027b9e;">
 	                	</p:commandButton>
 	                		<p:dialog header="Banho e Tosa - Detalhes" widgetVar="BanhoTosaDialog" 
 					         	resizable="false" modal="true" dynamic="true" showEffect="fade">

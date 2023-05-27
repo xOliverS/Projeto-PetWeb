@@ -83,13 +83,13 @@
 		        <p:outputLabel value="Valor do Serviço"/>
 		        <p:inputNumber placeholder="R$ 45,00" id="input1" value="#{servicoBean.serv.valorServico}" modifyValueOnWheel="false" />
 		        
-		        <p:outputLabel for="time" value="Time"/>
+		        <p:outputLabel for="time" value="Data do Agendamento"/>
                 <p:datePicker id="time" value="#{servicoBean.serv.dataServico}" showTime="true"/>
 		        
 		        <p:outputLabel value="Observações"/>
 		        <p:inputTextarea rows="6" cols="33" value="#{servicoBean.serv.anotacoes}"/>
 		        
-		        <p:commandButton value="Salvar" action="#{servicoBean.salvar}" update="form"/>
+		        <p:commandButton style="margin-top: 8px;" value="Salvar" action="#{servicoBean.salvar}" update="form"/>
 			</div>
 		</h:form>
 </h:body>

@@ -10,6 +10,7 @@
 
 <h:head>
 	<link rel="stylesheet" type="text/css" href="css/home.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/lista.css" />
 	<title>Lista de Serviços</title>
 </h:head>
 
@@ -61,19 +62,24 @@
 			<p:commandButton value=" Sair" action="#{loginBean.sair}" />
 		</div>
 		
-	<p:dataTable value="#{servicoBean.list}" var="s" rowKey="#{s.id}" id="eventsDT">
-		<f:facet name="header"> Agendamentos Realizados </f:facet>
-			<p:column headerText="Serviço"><p:outputLabel value="#{s.tipoServico}"/></p:column>
-			<p:column headerText="Animal"><p:outputLabel value="#{s.tipoAnimal}"/></p:column>
-			<p:column headerText="Valor"><p:outputLabel value="#{s.valorServico}"/></p:column>
-			<p:column headerText="Anotações"><p:outputLabel value="#{s.anotacoes}"/></p:column>
-			<p:column headerText="DataAgendamento"><p:outputLabel value="#{s.dataServico}" /> </p:column>
-			<p:column headerText="Deletar" style="width:3rem;text-align: center">
-	        	<p:commandButton icon="pi pi-trash" action="#{servicoBean.deletar}" ajax="false">
-	            	<f:setPropertyActionListener value="#{s}" target="#{servicoBean.serv}" />
-	        	</p:commandButton>
-            	</p:column>
-	</p:dataTable>
+		<p:dataGrid value="#{servicoBean.list}" var="s" itemStyleClass="car-item" circular="true" numVisible="3" responsive="true">
+		    <div class="car-item-content">
+		        	<div class="item">
+		      		 <h3>Agendamento Realizado</h3>
+					 <p><b>Serviço:</b> #{s.tipoServico}</p>
+				     <p><b>Animal:</b> #{s.tipoAnimal}</p>
+				     <p><b>Valor:</b> #{s.valorServico}</p>
+				     <p><b>Anotações:</b> #{s.anotacoes}</p>
+				     <p><b>Data de Agendamento:</b> #{s.dataServico}</p>
+		        <p:commandButton icon="pi pi-trash" action="#{servicoBean.deletar}" ajax="false" style="margin-top: 10px; background-color: red; border-radius: 10px;">
+		            <f:setPropertyActionListener value="#{s}" target="#{servicoBean.serv}" />
+		        </p:commandButton>
+		        	</div>
+		    </div>
+		</p:dataGrid>
+		
+		
+		
 	</h:form>
 	
 	
