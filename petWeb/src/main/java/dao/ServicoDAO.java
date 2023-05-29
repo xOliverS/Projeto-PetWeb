@@ -19,7 +19,7 @@ public class ServicoDAO {
 	
 	public static List<Servico> listarTodos(){
 		EntityManager em = JPAUTIL.criarEntity();
-		Query q = em.createQuery("select s from Servico s");
+		Query q = em.createQuery("select s from Servico s order by s.dataServico asc");
 		List<Servico> lista = q.getResultList();
 		em.close();
 		return lista;

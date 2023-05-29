@@ -57,13 +57,18 @@
 				<p:password id="pwd1" value="#{usuarioBean.user.senha}" match="pwd2" label="Password 1" required="true"/>
 				<p:outputLabel value="Confirme a senha"/>
 				<p:password id="pwd2" value="#{usuarioBean.user.senha}" label="Password 2" required="true"/>
+								
+		   		<c:if test="#{autenticadorBean.nivelAcesso eq 'admin'}">
+					<p:outputLabel value="Nivel de Acesso"/>
+					<p:selectOneButton value="#{usuarioBean.user.nivel}">
+						<f:selectItem itemLabel="Cliente" itemValue="cliente"/>
+						<f:selectItem itemLabel="Administrador" itemValue="admin"/>
+				    </p:selectOneButton>
+				</c:if>
 				
-				<p:outputLabel value="Nivel de Acesso"/>
-				<p:selectOneButton value="#{usuarioBean.user.nivel}">
-            		<f:selectItem itemLabel="Cliente" itemValue="cliente"/>
-     		   </p:selectOneButton>
 				<p:commandButton value="Cadastrar" action="#{usuarioBean.salvar}" update="form"/>
 				<p:link outcome="login" value="Efetuar Login" id="link"> </p:link>
+				
 			</div>
 		</h:form>
 		

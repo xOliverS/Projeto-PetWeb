@@ -1,8 +1,8 @@
 package bean;
 
 import java.util.List;
-
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 import dao.UsuarioDAO;
 import entidades.Usuario;
@@ -14,9 +14,24 @@ public class UsuarioBean {
 	private Usuario user = new Usuario();
 	private List<Usuario> list;
 	
+	@ManagedProperty(value = "#{autenticadorBean}")
+	private AutenticadorBean autenticadorBean;
+	
+	public AutenticadorBean getAutenticadorBean() {
+		return autenticadorBean;
+	}
+
+	public void setAutenticadorBean(AutenticadorBean autenticadorBean) {
+		this.autenticadorBean = autenticadorBean;
+	}
+
 	public String salvar() {
 			
-			try {
+			try {				
+				if(autenticadorBean == null || autenticadorBean.getNivelAcesso() == null) {
+					user.setNivel("cliente");
+				}
+				
 				UsuarioDAO.salvar(user);
 				sucesso("Sucesso", "Usuário cadastrado com sucesso !");
 				user = new Usuario();

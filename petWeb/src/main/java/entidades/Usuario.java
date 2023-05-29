@@ -22,7 +22,7 @@ public class Usuario implements Serializable{
 	private String nomeUsuario;
 	@Column(name = "senha", nullable = false)
 	private String senha;
-	@Column(name = "Nivel", nullable = false)
+	@Column(name = "Nivel")
 	private String nivel;
 	
 	

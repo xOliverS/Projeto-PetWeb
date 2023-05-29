@@ -1,5 +1,13 @@
 @charset "ISO-8859-1";
 
+body{
+	background-color: #ccc
+}
+
+
+.box-listagem{
+	padding: 40px;
+}
 
 .car-item-content {
   white-space: pre-wrap;

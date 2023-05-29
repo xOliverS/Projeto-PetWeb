@@ -44,8 +44,7 @@ public class LoginBean {
 	}
 	
 	public String sair() {
-		usr = null;
-		autenticadorBean.setUsrLogado(null);
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		System.out.println("SAINDO..");
 		return "login.xhtml?faces-redirect=true";
 	}

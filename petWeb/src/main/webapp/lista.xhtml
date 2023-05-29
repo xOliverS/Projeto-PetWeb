@@ -62,22 +62,27 @@
 			<p:commandButton value=" Sair" action="#{loginBean.sair}" />
 		</div>
 		
-		<p:dataGrid value="#{servicoBean.list}" var="s" itemStyleClass="car-item" circular="true" numVisible="3" responsive="true">
-		    <div class="car-item-content">
-		        	<div class="item">
-		      		 <h3>Agendamento Realizado</h3>
-					 <p><b>Serviço:</b> #{s.tipoServico}</p>
-				     <p><b>Animal:</b> #{s.tipoAnimal}</p>
-				     <p><b>Valor:</b> #{s.valorServico}</p>
-				     <p><b>Anotações:</b> #{s.anotacoes}</p>
-				     <p><b>Data de Agendamento:</b> #{s.dataServico}</p>
-		        <p:commandButton icon="pi pi-trash" action="#{servicoBean.deletar}" ajax="false" style="margin-top: 10px; background-color: red; border-radius: 10px;">
-		            <f:setPropertyActionListener value="#{s}" target="#{servicoBean.serv}" />
-		        </p:commandButton>
-		        	</div>
-		    </div>
-		</p:dataGrid>
+		<div class="box-listagem">
 		
+			<p:carousel value="#{servicoBean.list}" var="s" itemStyleClass="car-item" circular="true" numVisible="3" responsive="true">
+				<f:facet name="header">
+					<h:outputText value="Próximos Agendamentos" />
+				</f:facet>
+			    <div class="car-item-content">
+			        	<div class="item">
+			      		 <h3>Agendamento Realizado</h3>
+						 <p><b>Serviço:</b> #{s.tipoServico}</p>
+					     <p><b>Animal:</b> #{s.tipoAnimal}</p>
+					     <p><b>Valor:</b> #{s.valorServico}</p>
+					     <p><b>Anotações:</b> #{s.anotacoes}</p>
+					     <p><b>Data de Agendamento:</b> #{s.dataServico}</p>
+			        <p:commandButton icon="pi pi-trash" action="#{servicoBean.deletar}" ajax="false" style="margin-top: 10px; background-color: red; border-radius: 10px;">
+			            <f:setPropertyActionListener value="#{s}" target="#{servicoBean.serv}" />
+			        </p:commandButton>
+			        	</div>
+			    </div>
+			</p:carousel>
+		</div>
 		
 		
 	</h:form>

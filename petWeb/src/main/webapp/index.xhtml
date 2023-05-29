@@ -19,7 +19,7 @@
 				<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
 					<nav class="nav">
 						 <div class="card">
-						    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
+						    <p:tabMenu activeIndex="#{param.i}">
 						        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
 						            <f:param name="i" value="0"/>
 						        </p:menuitem>
@@ -63,7 +63,7 @@
 			
 		<div style="display: flex; justify-content: space-around; margin-top: 50px; " class="cards">
 			<div class="card-itens">
-				<p:card styleClass="p-card">
+				<p:card styleClass="p-card" style="border-radius: 15px;">
 				    <f:facet name="header">
 				        <img alt="user header" src="images/04.jpg"/>
 				    </f:facet>
@@ -100,7 +100,7 @@
 			</div>
 		
 			<div class="card-itens">
-				<p:card styleClass="p-card">
+				<p:card styleClass="p-card" style="border-radius: 15px;">
 				    <f:facet name="header">
 				        <img alt="user header" src="images/08RED.jpg"/>
 				    </f:facet>
@@ -133,7 +133,7 @@
 				</p:card>
 			</div>
 			<div class="card-itens">
-			<p:card styleClass="p-card">
+			<p:card styleClass="p-card" style="border-radius: 15px;">
 			    <f:facet name="header">
 			        <img alt="user header" src="images/07RED.jpeg"/>
 			    </f:facet>
