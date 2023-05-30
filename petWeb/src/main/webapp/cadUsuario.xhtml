@@ -9,6 +9,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
+	<link rel="stylesheet" type="text/css" href="css/home.css" />
 	<link rel="stylesheet" type="text/css" href="css/cadUsuario.css" media="screen" />
 	<title>Cadastro Usuario</title>
 </h:head>
@@ -16,30 +17,30 @@
 <h:body>
 	<h:form>
 		<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
-					<nav class="nav">
-						 <div class="card">
-						    <p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
-						        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
-						            <f:param name="i" value="0"/>
-						        </p:menuitem>
-						        <p:menuitem value="Agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
-						            <f:param name="i" value="1"/>
-						        </p:menuitem>
-						        <p:menuitem value="Realizar Agendamento" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
-						                    disabled="false">
-						            <f:param name="i" value="2"/>
-						        </p:menuitem>
-						        <p:menuitem value="Cadastrar Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
-						            <f:param name="i" value="4"/>
-						        </p:menuitem>
-						    </p:tabMenu>
-						</div>			
-					</nav>		
+					<nav class="menu">
+				        <ul>
+				            <li class="s-menu-item">
+				                <a href="index.xhtml">Inicio</a>
+				            </li>
+				            <li class="s-menu-item">
+				                <a href="lista.xhtml">Agendamentos</a>
+				            </li>
+				            <li class="s-menu-item menu_icon">
+				                <img src="images/dog.svg" alt="menu-icon" />
+				            </li>
+				            <li class="s-menu-item">
+				                <a href="cadServico.xhtml">Realizar Agendamento</a>
+				            </li>
+				            <li class="s-menu-item">
+				                <a href="cadUsuario.xhtml">Cadastro Usuário</a>
+				            </li>          
+				        </ul>
+				        <div class="logout">
+					        <h:outputText styleClass="nomeUsuario" value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " icon="pi pi-fw pi-user-plus"/>
+					        <p:commandButton value="Sair" action="#{loginBean.sair}" />
+					    </div>
+    				</nav>		
 			</c:if>
-					<div class="logout">
-						<h:outputText value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " />
-						<p:commandButton value=" Sair" action="#{loginBean.sair}" />
-					</div>
 			
 		</h:form>		
 		<h:form id="form">
@@ -71,6 +72,12 @@
 				
 			</div>
 		</h:form>
+		
+		<div class="footer">
+    		<div class="footer-content">
+      			<p>Todos os direitos reservados pela equipe de Dev Unifametro - PI IV </p>
+    		</div>
+  		</div>
 		
 </h:body>
 </html>

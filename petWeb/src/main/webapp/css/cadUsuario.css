@@ -1,5 +1,49 @@
 @charset "ISO-8859-1";
 
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+
+}
+
+body{
+	font-family: 'Alkatra', cursive;
+	background-image: linear-gradient(330deg, rgb(165, 180, 252), rgb(79, 70, 229));
+	height: 100%;
+	color: #fff;
+}
+
+.menu {
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.s-menu-item{
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 0 1.25rem;
+}
+
+.menu_icon{
+    width: 2.5rem;
+    margin: 0 1.25rem;
+    vertical-align: middle;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logout{
+	position: relative;
+	float: right;
+}
+
+
 .login{
 	width: 100vw;
 	height: 50vh; 
@@ -11,10 +55,14 @@
   	border-radius: 5px;
 }
 
-.logout{
-	position: relative;
-	margin-right: 15px;
-	top: -40px;
-	float: right;
+.footer {
+  	position: fixed !important;
+  	left: 0;
+  	bottom: 0;
+  	width: 100%;
+  	background-color: #f5f5f5;
+  	padding: 20px;
+  	text-align: center;
 }
+
 

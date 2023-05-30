@@ -20,12 +20,21 @@ body{
 .item{
 	border-radius: 10px;
   	background-color: #0093E9;
-	background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+	background-image: linear-gradient(330deg, rgb(165, 180, 252), rgb(238, 195, 1));
   	padding: 20px;
   	margin: 10px;
   	color: #ffff;
 }
 
+.footer {
+  	position: fixed !important;
+  	left: 0;
+  	bottom: 0;
+  	width: 100%;
+  	background-color: #f5f5f5;
+  	padding: 20px;
+  	text-align: center;
+}
 
 p{
 	line-height: 0.1;
@@ -33,3 +42,6 @@ p{
 	display: flex;
 }
 
+.footer-content p{
+	color: #666;
+}

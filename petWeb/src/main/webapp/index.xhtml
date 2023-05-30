@@ -16,52 +16,67 @@
 	</h:head>
 	<h:body>
 		<h:form>
-				<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
-					<nav class="nav">
-						 <div class="card">
-						    <p:tabMenu activeIndex="#{param.i}">
-						        <p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
-						            <f:param name="i" value="0"/>
-						        </p:menuitem>
-						        <p:menuitem value="Agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
-						            <f:param name="i" value="1"/>
-						        </p:menuitem>
-						        <p:menuitem value="Realizar Agendamento" outcome="/cadServico" icon="pi pi-fw pi-user-plus"
-						                    disabled="false">
-						            <f:param name="i" value="2"/>
-						        </p:menuitem>
-						        <p:menuitem value="Cadastrar Usuario" outcome="/cadUsuario" icon="pi pi-fw pi-users">
-						            <f:param name="i" value="3"/>
-						        </p:menuitem>
-						    </p:tabMenu>
-						</div>			
-					</nav>
-				</c:if>
-				<c:if test="#{autenticadorBean.nivelAcesso == 'cliente'}">
-					<nav class="nav">
-						<div class="card">
-							<p:tabMenu activeIndex="#{param.i}" style="display: flex; justify-content: center;">
-								<p:menuitem value="Inicio" outcome="/index" icon="pi pi-fw pi-home">
-							    	<f:param name="i" value="0"/>
-							    </p:menuitem>
-							    <p:menuitem value="Meus agendamentos" outcome="/lista" icon="pi pi-fw pi-calendar">
-							        <f:param name="i" value="1"/>
-							    </p:menuitem>
-							    <p:menuitem value="Agendar Serviço" outcome="/cadServico" icon="pi pi-fw pi-user-plus" disabled="false">
-							        <f:param name="i" value="2"/>
-							    </p:menuitem>
-							</p:tabMenu>
-							
-						</div>			
-					</nav>
-				</c:if>
-				<div class="logout">
-					<h:outputText styleClass="nomeUsuario" value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " icon="pi pi-fw pi-user-plus"/>
-					<p:commandButton value=" Sair" action="#{loginBean.sair}" />
-				</div>
-			</h:form>
+			<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
+				<nav class="menu">
+			        <ul>
+			            <li class="s-menu-item">
+			                <a href="index.xhtml">Inicio</a>
+			            </li>
+			            <li class="s-menu-item">
+			                <a href="lista.xhtml">Agendamentos</a>
+			            </li>
+			            <li class="s-menu-item menu_icon">
+			                <img src="images/dog.svg" alt="menu-icon" />
+			            </li>
+			            <li class="s-menu-item">
+			                <a href="cadServico.xhtml">Realizar Agendamento</a>
+			            </li>
+			            <li class="s-menu-item">
+			                <a href="cadUsuario.xhtml">Cadastro Usuário</a>
+			            </li>          
+			        </ul>
+			        <div class="logout">
+				        <h:outputText styleClass="nomeUsuario" value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " icon="pi pi-fw pi-user-plus"/>
+				        <p:commandButton value="Sair" action="#{loginBean.sair}" />
+				    </div>
+   				</nav>
+			</c:if>
+			<c:if test="#{autenticadorBean.nivelAcesso == 'cliente'}">
+				<nav class="menu">
+			        <ul>
+			            <li class="s-menu-item">
+			                <a href="index.xhtml">Inicio</a>
+			            </li>
+			            <li class="s-menu-item">
+			                <a href="lista.xhtml">Agendamentos</a>
+			            </li>
+			            <li class="s-menu-item menu_icon">
+			                <img src="images/dog.svg" alt="menu-icon" />
+			            </li>
+			            <li class="s-menu-item">
+			                <a href="cadServico.xhtml">Realizar Agendamento</a>
+			            </li>        
+			        </ul>
+			        <div class="logout">
+				        <h:outputText styleClass="nomeUsuario" value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! "/>
+				        <p:commandButton value="Sair" action="#{loginBean.sair}" />
+				    </div>
+   				</nav>
+			</c:if>
+				
+		</h:form>
 			
-		<div style="display: flex; justify-content: space-around; margin-top: 50px; " class="cards">
+		<!-- <div class="card-banner">
+			<div class="banner-itens">
+				<h3>Compare nossa tosa - Antes de Depois</h3>
+	   			<p:imageCompare leftImage="/images/dog02.jpg"
+	                    rightImage="/images/dog02-cut.jpg"
+	                    width="450" height="435"/>
+
+	    	</div>
+		</div>	
+		-->
+		<div style="display: flex; justify-content: space-around; margin-top: 50px;" class="cards">
 			<div class="card-itens">
 				<p:card styleClass="p-card" style="border-radius: 15px;">
 				    <f:facet name="header">
