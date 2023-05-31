@@ -19,10 +19,10 @@
 			<c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
 				<nav class="menu">
 			        <ul>
-			            <li class="s-menu-item">
+			            <li class="s-menu-item active">
 			                <a href="index.xhtml">Inicio</a>
 			            </li>
-			            <li class="s-menu-item">
+			            <li class="s-menu-item" >
 			                <a href="lista.xhtml">Agendamentos</a>
 			            </li>
 			            <li class="s-menu-item menu_icon">
@@ -36,7 +36,7 @@
 			            </li>          
 			        </ul>
 			        <div class="logout">
-				        <h:outputText styleClass="nomeUsuario" value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! " icon="pi pi-fw pi-user-plus"/>
+				        <h:outputText styleClass="nomeUsuario" value="Bem Vindo(a) #{autenticadorBean.usrLogado.nomeUsuario}! "/>
 				        <p:commandButton value="Sair" action="#{loginBean.sair}" />
 				    </div>
    				</nav>
@@ -44,7 +44,7 @@
 			<c:if test="#{autenticadorBean.nivelAcesso == 'cliente'}">
 				<nav class="menu">
 			        <ul>
-			            <li class="s-menu-item">
+			            <li class="s-menu-item active">
 			                <a href="index.xhtml">Inicio</a>
 			            </li>
 			            <li class="s-menu-item">
@@ -183,5 +183,6 @@
       			<p>Todos os direitos reservados pela equipe de Dev Unifametro - PI IV </p>
     		</div>
   		</div>
+  		
 	</h:body>
 </html>

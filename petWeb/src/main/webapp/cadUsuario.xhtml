@@ -31,7 +31,7 @@
 				            <li class="s-menu-item">
 				                <a href="cadServico.xhtml">Realizar Agendamento</a>
 				            </li>
-				            <li class="s-menu-item">
+				            <li class="s-menu-item active">
 				                <a href="cadUsuario.xhtml">Cadastro Usuário</a>
 				            </li>          
 				        </ul>
@@ -42,34 +42,38 @@
     				</nav>		
 			</c:if>
 			
-		</h:form>		
+		</h:form>	
+		
 		<h:form id="form">
 			<p:messages id="messages" showDetail="true" closable="true">
 		    	<p:autoUpdate />
 		    </p:messages>
+		    	
 			<div class="login">	
-				<p:outputLabel value="Nome de Usuário"/>
-				<p:inputText value="#{usuarioBean.user.nomeUsuario}" required="true"/>
-				
-				<p:outputLabel value="login"/>
-				<p:inputText value="#{usuarioBean.user.login}" required="true"/>
-				
-				<p:outputLabel value="Senha"/>
-				<p:password id="pwd1" value="#{usuarioBean.user.senha}" match="pwd2" label="Password 1" required="true"/>
-				<p:outputLabel value="Confirme a senha"/>
-				<p:password id="pwd2" value="#{usuarioBean.user.senha}" label="Password 2" required="true"/>
-								
-		   		<c:if test="#{autenticadorBean.nivelAcesso eq 'admin'}">
-					<p:outputLabel value="Nivel de Acesso"/>
-					<p:selectOneButton value="#{usuarioBean.user.nivel}">
-						<f:selectItem itemLabel="Cliente" itemValue="cliente"/>
-						<f:selectItem itemLabel="Administrador" itemValue="admin"/>
-				    </p:selectOneButton>
-				</c:if>
-				
-				<p:commandButton value="Cadastrar" action="#{usuarioBean.salvar}" update="form"/>
-				<p:link outcome="login" value="Efetuar Login" id="link"> </p:link>
-				
+			<h2>Cadastre-se para ter total acesso ao site</h2>
+				<div class="box-user">
+					<p:outputLabel value="Nome de Usuário" styleClass="out-margin"/>
+					<p:inputText value="#{usuarioBean.user.nomeUsuario}" required="true"/>
+					
+					<p:outputLabel value="Login" styleClass="out-margin"/>
+					<p:inputText value="#{usuarioBean.user.login}" required="true"/>
+					
+					<p:outputLabel value="Senha" styleClass="out-margin"/>
+					<p:password id="pwd1" value="#{usuarioBean.user.senha}" match="pwd2" label="Password 1" required="true"/>
+					<p:outputLabel value="Confirme a senha" styleClass="out-margin"/>
+					<p:password id="pwd2" value="#{usuarioBean.user.senha}" label="Password 2" required="true"/>
+									
+			   		<c:if test="#{autenticadorBean.nivelAcesso eq 'admin'}">
+						<p:outputLabel value="Nivel de Acesso"/>
+						<p:selectOneButton value="#{usuarioBean.user.nivel}">
+							<f:selectItem itemLabel="Cliente" itemValue="cliente"/>
+							<f:selectItem itemLabel="Administrador" itemValue="admin"/>
+					    </p:selectOneButton>
+					</c:if>
+					
+					<p:commandButton value="Cadastrar" action="#{usuarioBean.salvar}" update="form" style="margin-top: 10px; background-color: #ff938c; font-weight: bold;"/>
+					<p:link outcome="login" value="Efetuar Login" style="color: white;" id="link"> </p:link>
+				</div>
 			</div>
 		</h:form>
 		
