@@ -59,7 +59,7 @@ body{
 
 h1{
   font-size: 48px;
-  color: #066a75;
+  color: rgb(79, 70, 229);
   padding: 2px 0 10px 0;
   font-family: Arial,sans-serif;
   font-weight: bold;
@@ -80,7 +80,7 @@ h1:after{
 input[type="submit"]{
   width: 100%!important;
   cursor: pointer;  
-  background: rgb(61, 157, 179);
+  background: rgb(79, 70, 229);
   padding: 8px 5px;
   color: #fff;
   font-size: 20px;  
