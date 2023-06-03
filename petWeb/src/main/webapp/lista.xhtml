@@ -74,17 +74,19 @@
 					<h:outputText value="Próximos Agendamentos" />
 				</f:facet>
 			    <div class="car-item-content">
-			        	<div class="item">
-			      		 <h3>Agendamento Realizado</h3>
-						 <p><b>Serviço:</b> #{s.tipoServico}</p>
-					     <p><b>Animal:</b> #{s.tipoAnimal}</p>
-					     <p><b>Valor:</b> #{s.valorServico}</p>
-					     <p><b>Anotações:</b> #{s.anotacoes}</p>
-					     <p><b>Data de Agendamento:</b> #{s.dataServico}</p>
-			        <p:commandButton icon="pi pi-trash" value="Encerrar agendamento" action="#{servicoBean.deletar}" ajax="false" style="margin-top: 15px; background-color: #1b639d; border-radius: 10px;">
-			            <f:setPropertyActionListener value="#{s}" target="#{servicoBean.serv}" />
-			        </p:commandButton>
-			        	</div>
+			    	<div class="item">
+			      		<h3>Agendamento Realizado</h3>
+						<p><b>Serviço:</b> #{s.tipoServico}</p>
+					    <p><b>Animal:</b> #{s.tipoAnimal}</p>
+					    <p><b>Valor:</b> #{s.valorServico}</p>
+					    <p><b>Anotações:</b> #{s.anotacoes}</p>
+					    <p><b>Data de Agendamento:</b> #{s.dataServico}</p>
+				        <c:if test="#{autenticadorBean.nivelAcesso == 'admin'}">
+					        <p:commandButton icon="pi pi-trash" value="Encerrar agendamento" action="#{servicoBean.deletar}" ajax="false" style="margin-top: 15px; background-color: #1b639d; border-radius: 10px;">
+					            <f:setPropertyActionListener value="#{s}" target="#{servicoBean.serv}" />
+					        </p:commandButton>
+				        </c:if>
+			        </div>
 			    </div>
 			</p:carousel>
 		</div>
